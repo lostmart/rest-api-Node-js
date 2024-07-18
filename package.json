@@ -18,8 +18,8 @@
 	"scripts": {
 		"start": "nodemon server.js"
 	},
-	"name": "vanessa-rest-api",
-	"version": "1.0.0",
+	"name": "rest-api-nodejs",
+	"version": "1.0.1",
 	"main": "app.js",
 	"keywords": [],
 	"author": "",
