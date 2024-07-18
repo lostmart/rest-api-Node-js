@@ -27,19 +27,19 @@ app.use((req, res, next) => {
 })
 
 //const mongoConnection = process.env.CONEXTION_MONGO
-const mongoConnection = process.env.mongoConnection
-//connexion à la BDD
-mongoose.set("strictQuery", true)
-mongoose
-	.connect(mongoConnection)
-	.then(() => console.log("MongoDB  ok "))
-	.catch(() => console.log("Connexion à MongoDB échouée !"))
+// const mongoConnection = process.env.mongoConnection
+// //connexion à la BDD
+// mongoose.set("strictQuery", true)
+// mongoose
+// 	.connect(mongoConnection)
+// 	.then(() => console.log("MongoDB  ok "))
+// 	.catch(() => console.log("Connexion à MongoDB échouée !"))
 //middleware qui permet d'accéder aux requêtes qui contiennent du json
 
 // welcome message
 app.get("/", (req, res, next) => {
 	res.status(200).json({
-		msg: "Welcome to my resp-API",
+		msg: "Welcome to my resp-API, offlineMode On 📴 NO DB CONNECTION",
 	})
 	next()
 })
