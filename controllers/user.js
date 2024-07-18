@@ -1,22 +1,23 @@
 const bcrypt = require("bcrypt")
-const User = require("../models/user")
+// const User = require("../models/user")  -> from mongoose
+const ClassUser = require("../classes/User")
 const jwt = require("jsonwebtoken")
+
 require("dotenv").config()
 
-exports.signup = (req, res, next) => {
-	bcrypt
-		.hash(req.body.password, 10)
-		.then((hash) => {
-			const user = new User({
-				email: req.body.email,
-				password: hash,
-			})
-			user
-				.save()
-				.then(() => res.status(201).json({ message: "Utilisateur créé !" }))
-				.catch((error) => res.status(400).json({ error }))
+exports.signup = async (req, res, next) => {
+	try {
+		const hash = await bcrypt.hash(req.body.password, 10)
+		const user = new ClassUser({
+			email: req.body.email,
+			password: hash,
 		})
-		.catch((error) => res.status(500).json({ error }))
+		user
+			? res.status(201).json({ message: "Utilisateur créé !" })
+			: new Error("No user created ...")
+	} catch (error) {
+		res.status(500).json({ error: error.message })
+	}
 }
 
 exports.login = async (req, res, next) => {
