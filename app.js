@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 	next()
 })
 
+// NOT USED
 //const mongoConnection = process.env.CONEXTION_MONGO
 // const mongoConnection = process.env.mongoConnection
 // //connexion à la BDD

@@ -44,6 +44,6 @@ exports.login = async (req, res) => {
 			process.env.RANDOM_SECRET_WORD,
 			{ expiresIn: "24h" }
 		)
-		res.status(200).json({ userId: userData.email, token })
+		res.status(200).json({ token })
 	}
 }
