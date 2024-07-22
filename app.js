@@ -1,10 +1,8 @@
 const path = require("path")
 const express = require("express")
-const mongoose = require("mongoose")
-require("dotenv").config()
 
 const userRouter = require("./routes/user.js")
-const sauceRouter = require("./routes/sauce.js")
+// const sauceRouter = require("./routes/sauce.js")
 
 const cors = require("cors")
 const app = express()
@@ -40,7 +38,7 @@ app.use((req, res, next) => {
 // welcome message
 app.get("/", (req, res, next) => {
 	res.status(200).json({
-		msg: "Welcome to my resp-API, offlineMode On 📴 NO DB CONNECTION",
+		msg: "Welcome to my resp-API, offlineMode On 📴 NO DB CONNECTIONs",
 	})
 	next()
 })
@@ -49,7 +47,7 @@ app.get("/", (req, res, next) => {
 app.use("/api/", userRouter)
 
 // sauce le router
-app.use("/api/", sauceRouter)
+// app.use("/api/", sauceRouter)
 
 app.use("/images", express.static(path.join(__dirname, "images")))
 

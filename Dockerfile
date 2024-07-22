@@ -2,22 +2,19 @@
 FROM node:14
 
 # Create and set the working directory
-WORKDIR /app
+WORKDIR /
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Rebuild native modules (if needed)
-RUN npm rebuild bcrypt --build-from-source
-
-# Expose the port the app runs on
+# Expose the port the app runs on, yes
 EXPOSE 3000
 
 # Define the command to run the application
-CMD ["node", "app.js"]
+CMD ["node", "server.js"]
