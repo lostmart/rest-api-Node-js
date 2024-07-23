@@ -24,9 +24,12 @@ exports.createSauce = (req, res) => {
 }
 
 exports.getAllSauces = (req, res) => {
-	Sauce.find()
-		.then((sauces) => res.status(200).json(sauces))
-		.catch((error) => res.status(400).json({ error }))
+	// Sauce.find()
+	// 	.then((sauces) => res.status(200).json(sauces))
+	// 	.catch((error) => res.status(400).json({ msg: error.message }))
+	res.status(200).json({
+		 msg: "all good and nice !!"
+	 })
 }
 
 exports.getOneSauce = (req, res, next) => {

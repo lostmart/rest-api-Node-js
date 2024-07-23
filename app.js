@@ -2,7 +2,7 @@ const path = require("path")
 const express = require("express")
 
 const userRouter = require("./routes/user.js")
-// const sauceRouter = require("./routes/sauce.js")
+const sauceRouter = require("./routes/sauce.js")
 
 const cors = require("cors")
 const app = express()
@@ -47,7 +47,7 @@ app.get("/", (req, res, next) => {
 app.use("/api/", userRouter)
 
 // sauce le router
-// app.use("/api/", sauceRouter)
+app.use("/api/", sauceRouter)
 
 app.use("/images", express.static(path.join(__dirname, "images")))
 

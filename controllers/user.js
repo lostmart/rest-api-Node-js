@@ -41,7 +41,7 @@ exports.login = async (req, res) => {
 	} else {
 			const token = jwt.sign(
 			{
-				userId: userData.email,
+				email: userData.email,
 			},
 				// process.env.RANDOM_SECRET_WORD,
 			"random_word",
