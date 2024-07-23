@@ -14,7 +14,7 @@ exports.signup = async (req, res, next) => {
 		/// check if user exists
 		user
 			? res.status(201).json({ message: "Utilisateur créé !", user })
-			: new Error("No user created ...")
+			: new Error("No user crfeated")
 	} catch (error) {
 		res.status(500).json({ error: error.message })
 	}
@@ -22,6 +22,8 @@ exports.signup = async (req, res, next) => {
 
 exports.login = async (req, res) => {
 	const { email, password } = req.body
+
+	console.log(email, password);
 
 	const userData = user
 	// check
@@ -37,13 +39,15 @@ exports.login = async (req, res) => {
 	if (!valid) {
 		return res.status(401).json({ msg: "identifiant/mot de passe incorrecte" })
 	} else {
-		const token = jwt.sign(
+			const token = jwt.sign(
 			{
 				userId: userData.email,
 			},
-			process.env.RANDOM_SECRET_WORD,
+				// process.env.RANDOM_SECRET_WORD,
+			"random_word",
 			{ expiresIn: "24h" }
 		)
-		res.status(200).json({ token })
+		return res.status(200).json({ token })
 	}
+		
 }
