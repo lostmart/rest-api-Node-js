@@ -2,7 +2,6 @@ const path = require("path")
 const express = require("express")
 
 const userRouter = require("./routes/user.js")
-const sauceRouter = require("./routes/sauce.js")
 
 const cors = require("cors")
 const app = express()
@@ -24,17 +23,6 @@ app.use((req, res, next) => {
 	next()
 })
 
-// NOT USED
-//const mongoConnection = process.env.CONEXTION_MONGO
-// const mongoConnection = process.env.mongoConnection
-// //connexion à la BDD
-// mongoose.set("strictQuery", true)
-// mongoose
-// 	.connect(mongoConnection)
-// 	.then(() => console.log("MongoDB  ok "))
-// 	.catch(() => console.log("Connexion à MongoDB échouée !"))
-//middleware qui permet d'accéder aux requêtes qui contiennent du json
-
 // welcome message
 app.get("/", (req, res, next) => {
 	res.status(200).json({
@@ -45,9 +33,6 @@ app.get("/", (req, res, next) => {
 
 // utiliser le router
 app.use("/api/", userRouter)
-
-// sauce le router
-app.use("/api/", sauceRouter)
 
 app.use("/images", express.static(path.join(__dirname, "images")))
 
