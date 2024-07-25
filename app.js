@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 // welcome message
 app.get("/", (req, res, next) => {
 	res.status(200).json({
-		msg: "Welcome to my resp-API, offlineMode On 📴 NO DB CONNECTIONs",
+		msg: "Welcome to my resp-API, offlineMode On 📴 sqlite3 DB",
 	})
 	next()
 })

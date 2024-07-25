@@ -1,5 +1,26 @@
-// const mongoose = require('mongoose')
-// const uniqueValidator = require('mongoose-unique-validator')
+const Joi = require("joi")
+
+const minDate = new Date().getFullYear() - 18
+
+const userSchema = Joi.object({
+	userName: Joi.string().min(3).required(),
+	email: Joi.string().email().required(),
+	password: Joi.string()
+		.pattern(new RegExp("^[a-zA-Z0-9@#$%&]{3,30}$"))
+		.required(),
+	birthYear: Joi.number().integer().min(1924).max(minDate).required(),
+})
+const validateUser = (user) => {
+	const { error } = userSchema.validate(user)
+	if (error) {
+		throw new Error(`Validation error: ${error.details[0].message}`)
+	}
+}
+
+module.exports = validateUser
+
+// Usage example
+// const newUser = { name: "Alice", email: "alice@example.com", age: 25 }
 
 // const userSchema = new mongoose.Schema(
 // 	{

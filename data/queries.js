@@ -1,52 +1,57 @@
 const Joi = require("joi")
-const sqlite3 = require("sqlite3").verbose()
 let sql
 
-const User = require("../classes/User")
-
-// const db = require("./db_connection")
-
-// new user using User class model
-try {
-	newUser = new User("bob", "baby@baby.net", "123@", 2004)
-	if (!newUser) new Error("error creating user with the class", error)
-	console.log(newUser)
-} catch (error) {
-	console.log("no no. no User created ...", error)
-}
-
-// Joi validation
-const minDate = new Date().getFullYear() - 18
-const userSchema = Joi.object({
-	userName: Joi.string().min(3).required(),
-	email: Joi.string().email().required(),
-	password: Joi.string()
-		.pattern(new RegExp("^[a-zA-Z0-9@#$%&]{3,30}$"))
-		.required(),
-	birthYear: Joi.number().integer().min(1924).max(minDate).required(),
+//DB connection
+const sqlite3 = require("sqlite3").verbose()
+let db = new sqlite3.Database("./db_file.db", sqlite3.OPEN_READWRITE, (err) => {
+	if (err) {
+		return console.error(err.message)
+	}
+	console.log("Connected to the database.")
 })
 
-const validateUser = (user) => {
-	const { error } = userSchema.validate(user)
-	if (error) {
-		throw new Error(`Validation error: ${error.details[0].message}`)
-	}
-}
+// new user using User class model
+// try {
+// 	newUser = new User("bob", "baby@baby.net", "123@", 2004)
+// 	if (!newUser) new Error("error creating user with the class", error)
+// 	console.log(newUser)
+// } catch (error) {
+// 	console.log("no no. no User created ...", error)
+// }
 
-try {
-	validateUser(newUser)
-	// Insert into SQLite database
-	console.log("now you can run the stuff")
-} catch (err) {
-	console.error(err.message)
-}
+// Joi validation
+// const minDate = new Date().getFullYear() - 18
+// const userSchema = Joi.object({
+// 	userName: Joi.string().min(3).required(),
+// 	email: Joi.string().email().required(),
+// 	password: Joi.string()
+// 		.pattern(new RegExp("^[a-zA-Z0-9@#$%&]{3,30}$"))
+// 		.required(),
+// 	birthYear: Joi.number().integer().min(1924).max(minDate).required(),
+// })
+
+// const validateUser = (user) => {
+// 	const { error } = userSchema.validate(user)
+// 	if (error) {
+// 		throw new Error(`Validation error: ${error.details[0].message}`)
+// 	}
+// }
+
+// try {
+// 	validateUser(newUser)
+// 	// Insert into SQLite database
+// 	console.log("now you can run the stuff")
+// } catch (err) {
+// 	console.error(err.message)
+// }
 
 // *** create table  ***
 // sql = `CREATE TABLE Users (
 //     id INTEGER PRIMARY KEY,
-//     name TEXT NOT NULL,
+//     userName TEXT NOT NULL,
 //     email TEXT UNIQUE NOT NULL,
-//     age INTEGER CHECK(age >= 18)
+//     password TEXT NOT NULL,
+//     birthYear INTEGER NOT NULL
 // )`
 // db.run(sql, (err) => handleError(err, "table created ..."))
 
