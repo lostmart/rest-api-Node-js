@@ -9,8 +9,12 @@ let db = new sqlite3.Database(
 )
 
 // *** create table  ***
-// sql =
-// 	"CREATE TABLE users(id INTEGER PRIMARY KEY, first_name, last_name, username, email )"
+// sql = `CREATE TABLE Users (
+//     id INTEGER PRIMARY KEY,
+//     name TEXT NOT NULL,
+//     email TEXT UNIQUE NOT NULL,
+//     age INTEGER CHECK(age >= 18)
+// )`
 // db.run(sql, (err) => handleError(err, "table created ..."))
 
 // *** drop a table ***
@@ -18,10 +22,9 @@ let db = new sqlite3.Database(
 // db.run(sql, (err) => handleError(err, "table dropped"))
 
 // *** insert data into the table ***
-// sql =
-// 	"INSERT INTO users(first_name, last_name, username, email) VALUES(?,?,?,?)"
+// sql = "INSERT INTO users(name, email, age) VALUES(?,?,?)"
 
-// db.run(sql, ["bob", "bonollon", "booolobohb", "bob@net.net"], (err) =>
+// db.run(sql, ["tinna", "chelock@net.net", 23], (err) =>
 // 	handleError(err, "user created")
 // )
 
@@ -33,20 +36,27 @@ let db = new sqlite3.Database(
 // })
 
 // *** delete data  ***
-sql = "DELETE from users WHERE id = ?"
-db.run(sql, [1], (err, rows) => {
+// check it exists first
+sql = sql = "SELECT * FROM users WHERE id = ?"
+db.all(sql, [5], (err, rows) => {
 	if (err) return console.log(err.message)
-	console.log("user deleted !!! 😮")
+	if (!rows.length) return console.log("no user with that id found ...")
+
+	sql = "DELETE from users WHERE id = ?"
+	db.run(sql, [5], (err) => {
+		if (err) return console.log(err.message)
+		console.log("user deleted !!! :o ")
+	})
 })
 
 // *** query the db  ***
-sql = "SELECT * FROM users"
-db.all(sql, [], (err, rows) => {
-	if (err) return console.log(err.message)
-	rows.forEach((row) => {
-		console.log(row)
-	})
-})
+// sql = "SELECT * FROM users"
+// db.all(sql, [], (err, rows) => {
+// 	if (err) return console.log(err.message)
+// 	rows.forEach((row) => {
+// 		console.log(row)
+// 	})
+// })
 
 // *** close the database connection  ***
 db.close()
