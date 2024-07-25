@@ -75,17 +75,19 @@ let db = new sqlite3.Database("./db_file.db", sqlite3.OPEN_READWRITE, (err) => {
 
 // *** delete data  ***
 // check it exists first
-// sql = sql = "SELECT * FROM users WHERE id = ?"
-// db.all(sql, [5], (err, rows) => {
-// 	if (err) return console.log(err.message)
-// 	if (!rows.length) return console.log("no user with that id found ...")
+sql = "SELECT * FROM users WHERE id = ?"
+userId = 1
 
-// 	sql = "DELETE from users WHERE id = ?"
-// 	db.run(sql, [5], (err) => {
-// 		if (err) return console.log(err.message)
-// 		console.log("user deleted !!! :o ")
-// 	})
-// })
+db.all(sql, [userId], (err, rows) => {
+	if (err) return console.log(err.message)
+	if (!rows.length) return console.log("no user with that id found ...")
+
+	sql = "DELETE from users WHERE id = ?"
+	db.run(sql, [userId], (err) => {
+		if (err) return console.log(err.message)
+		console.log("user deleted !!! :o ")
+	})
+})
 
 // *** query the db  ***
 // sql = "SELECT * FROM users"
