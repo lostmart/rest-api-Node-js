@@ -1,6 +1,8 @@
 //DB connection
-const sqlite3 = require("sqlite3").verbose()
-let db = new sqlite3.Database(
+import sqlite3 from "sqlite3"
+sqlite3.verbose()
+
+const db = new sqlite3.Database(
 	"./data/db_file.db",
 	sqlite3.OPEN_READWRITE,
 	(err) => {
@@ -19,4 +21,4 @@ let db = new sqlite3.Database(
 // 	console.log("Database connection ended...")
 // })
 
-module.exports = db
+export default db
