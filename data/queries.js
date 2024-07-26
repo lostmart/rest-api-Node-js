@@ -1,14 +1,20 @@
-const Joi = require("joi")
 let sql
 
 //DB connection
-const sqlite3 = require("sqlite3").verbose()
-let db = new sqlite3.Database("./db_file.db", sqlite3.OPEN_READWRITE, (err) => {
-	if (err) {
-		return console.error(err.message)
+
+import sqlite3 from "sqlite3"
+sqlite3.verbose()
+
+const db = new sqlite3.Database(
+	"./db_file.db",
+	sqlite3.OPEN_READWRITE,
+	(err) => {
+		if (err) {
+			return console.error(err.message)
+		}
+		console.log("Connected to the database.")
 	}
-	console.log("Connected to the database.")
-})
+)
 
 // new user using User class model
 // try {
@@ -76,7 +82,7 @@ let db = new sqlite3.Database("./db_file.db", sqlite3.OPEN_READWRITE, (err) => {
 // *** delete data  ***
 // check it exists first
 sql = "SELECT * FROM users WHERE id = ?"
-userId = 1
+let userId = 3
 
 db.all(sql, [userId], (err, rows) => {
 	if (err) return console.log(err.message)

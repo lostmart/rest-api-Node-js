@@ -1,20 +1,33 @@
-const util = require("util")
-const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
-const ClassUser = require("../classes/User")
-const validateUser = require("../models/user")
+import util from "util"
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+import ClassUser from "../classes/User.js"
+import { validateUser } from "../models/user.js"
+
+/* avatar imports */
+import { createAvatar } from "@dicebear/core"
+import { lorelei } from "@dicebear/collection"
 
 // db connection
-const db = require("../data/db_connection")
+import db from "../data/db_connection.js"
 // Inisialization of sql
 let sql = null
 
-require("dotenv").config()
+import dotenv from "dotenv"
+dotenv.config()
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
 	const { userName, email, password, birthYear } = req.body
 	// new User with class User
 	const newUser = new ClassUser(userName, email, password, birthYear)
+
+	/*  avatar test */
+	const avatar = createAvatar(lorelei, {
+		seed: "John Doe",
+		// ... other options
+	})
+
+	const svg = avatar.toString()
 
 	// user Schema validation
 	try {
@@ -53,6 +66,7 @@ exports.signup = async (req, res) => {
 						createdUser.email = row.email
 						createdUser.birthYear = row.birthYear
 						createdUser.userId = row.id
+						createdUser.avatarUri = svg
 					})
 				} else {
 					return res.status(500).json({
@@ -70,7 +84,7 @@ exports.signup = async (req, res) => {
 	}
 }
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
 	const { email, password } = req.body
 
 	let foundUser = {}
@@ -113,7 +127,27 @@ exports.login = async (req, res) => {
 	}
 }
 
+export const getAllUsers = async (req, res) => {
+	let sql = `SELECT * FROM users`
+	let users = []
 
-exports.getAllUsers = async (req, res) => {
-	
+	db.all(sql, [], (err, rows) => {
+		if (err) {
+			throw err
+		}
+		// at least one user found
+		if (rows.length) {
+			rows.forEach((row) => {
+				const user = {
+					userName: row.userName,
+					id: row.id,
+					email: row.email,
+				}
+				users.push(user)
+			})
+			return res.status(200).json({ users })
+		} else {
+			return res.status(200).json({ users, msg: "no users found!" })
+		}
+	})
 }

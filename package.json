@@ -1,5 +1,7 @@
 {
 	"dependencies": {
+		"@dicebear/collection": "^9.2.1",
+		"@dicebear/core": "^9.2.1",
 		"bcrypt": "^5.1.0",
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.3",
@@ -15,6 +17,7 @@
 	},
 	"name": "rest-api-nodejs",
 	"version": "1.0.0",
+	"type": "module",
 	"main": "app.js",
 	"keywords": [],
 	"author": "",

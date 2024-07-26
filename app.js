@@ -1,9 +1,11 @@
-const path = require("path")
-const express = require("express")
+import path from "path"
+import express from "express"
+import { dirname } from "path"
+import { fileURLToPath } from "url"
 
-const userRouter = require("./routes/user.js")
+import userRouter from "./routes/user.js"
 
-const cors = require("cors")
+import cors from "cors"
 const app = express()
 
 // middleware
@@ -34,6 +36,9 @@ app.get("/", (req, res, next) => {
 // utiliser le router
 app.use("/api/", userRouter)
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 app.use("/images", express.static(path.join(__dirname, "images")))
 
-module.exports = app
+export default app

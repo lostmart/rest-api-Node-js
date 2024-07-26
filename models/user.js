@@ -1,5 +1,4 @@
-const Joi = require("joi")
-
+import Joi from "joi"
 const minDate = new Date().getFullYear() - 18
 
 const userSchema = Joi.object({
@@ -10,14 +9,12 @@ const userSchema = Joi.object({
 		.required(),
 	birthYear: Joi.number().integer().min(1924).max(minDate).required(),
 })
-const validateUser = (user) => {
+export const validateUser = (user) => {
 	const { error } = userSchema.validate(user)
 	if (error) {
 		throw new Error(`Validation error: ${error.details[0].message}`)
 	}
 }
-
-module.exports = validateUser
 
 // Usage example
 // const newUser = { name: "Alice", email: "alice@example.com", age: 25 }

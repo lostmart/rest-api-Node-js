@@ -7,4 +7,4 @@ class ClassUser {
 	}
 }
 
-module.exports = ClassUser
+export default ClassUser

@@ -1,14 +1,15 @@
-const express = require("express")
+import express from "express"
 const router = express.Router()
+import auth from "../middleware/auth.js"
 
 // controller de user
-const userController = require("../controllers/user.js")
+import { signup, login, getAllUsers } from "../controllers/user.js"
 
 // routes pour le functions
-router.post("/auth/signup", userController.signup)
-router.post("/auth/login", userController.login)
-
-
+router.post("/auth/signup", signup)
+router.post("/auth/login", login)
+// protect endpoint
+router.get("/auth/allUsers", auth, getAllUsers)
 
 /*
 
@@ -17,4 +18,4 @@ api/auth/signup
 
 */
 
-module.exports = router
+export default router
