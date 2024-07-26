@@ -4,10 +4,6 @@ import jwt from "jsonwebtoken"
 import ClassUser from "../classes/User.js"
 import { validateUser } from "../models/user.js"
 
-/* avatar imports */
-import { createAvatar } from "@dicebear/core"
-import { lorelei } from "@dicebear/collection"
-
 // db connection
 import db from "../data/db_connection.js"
 // Inisialization of sql
@@ -22,13 +18,6 @@ export const signup = async (req, res) => {
 	// new User with class User
 	const newUser = new ClassUser(userName, userImg, email, password, birthYear)
 
-	/*  avatar test */
-	// const avatar = createAvatar(lorelei, {
-	// 	seed: "John Doe",
-	// 	// ... other options
-	// })
-
-	// const svg = avatar.toString()
 
 	// user Schema validation
 	try {

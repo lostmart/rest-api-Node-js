@@ -17,10 +17,20 @@
 	"version": "1.0.0",
 	"type": "module",
 	"main": "app.js",
-	"keywords": [],
+	"keywords": [
+		"rest API",
+		"multer",
+		"docker",
+		"jwt",
+		"nodejs",
+		"sqlite3",
+		"express",
+		"bcrypt",
+		"joi"
+	],
 	"author": "",
 	"license": "ISC",
-	"description": "",
+	"description": "Rest API to create users accounts using sqlite3, jsonwebtoken and multer for image tratment",
 	"devDependencies": {
 		"nodemon": "^3.1.0"
 	}
