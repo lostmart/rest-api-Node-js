@@ -3,6 +3,7 @@ const minDate = new Date().getFullYear() - 18
 
 const userSchema = Joi.object({
 	userName: Joi.string().min(3).required(),
+	userImg: Joi.string().required(),
 	email: Joi.string().email().required(),
 	password: Joi.string()
 		.pattern(new RegExp("^[a-zA-Z0-9@#$%&]{3,30}$"))

@@ -18,16 +18,17 @@ dotenv.config()
 
 export const signup = async (req, res) => {
 	const { userName, email, password, birthYear } = req.body
+	const userImg = `https://api.dicebear.com/9.x/adventurer/svg?seed=${userName}`
 	// new User with class User
-	const newUser = new ClassUser(userName, email, password, birthYear)
+	const newUser = new ClassUser(userName, userImg, email, password, birthYear)
 
 	/*  avatar test */
-	const avatar = createAvatar(lorelei, {
-		seed: "John Doe",
-		// ... other options
-	})
+	// const avatar = createAvatar(lorelei, {
+	// 	seed: "John Doe",
+	// 	// ... other options
+	// })
 
-	const svg = avatar.toString()
+	// const svg = avatar.toString()
 
 	// user Schema validation
 	try {
@@ -47,7 +48,7 @@ export const signup = async (req, res) => {
 
 		// run query to insert data into DB
 		sql =
-			"INSERT INTO users(userName, email, password, birthYear) VALUES(?,?,?,?)"
+			"INSERT INTO users(userName, userImg, email, password, birthYear) VALUES(?,?,?,?,?)"
 
 		db.run(sql, valuesArray, (err) => {
 			if (err) {
@@ -66,7 +67,7 @@ export const signup = async (req, res) => {
 						createdUser.email = row.email
 						createdUser.birthYear = row.birthYear
 						createdUser.userId = row.id
-						createdUser.avatarUri = svg
+						createdUser.userImg = row.userImg
 					})
 				} else {
 					return res.status(500).json({

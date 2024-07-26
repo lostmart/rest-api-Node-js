@@ -52,9 +52,10 @@ const db = new sqlite3.Database(
 // }
 
 // *** create table  ***
-// sql = `CREATE TABLE Users (
+// sql = `CREATE TABLE IF NOT EXISTS Users (
 //     id INTEGER PRIMARY KEY,
 //     userName TEXT NOT NULL,
+//     userImg TEXT NOT NULL,
 //     email TEXT UNIQUE NOT NULL,
 //     password TEXT NOT NULL,
 //     birthYear INTEGER NOT NULL
@@ -82,7 +83,7 @@ const db = new sqlite3.Database(
 // *** delete data  ***
 // check it exists first
 sql = "SELECT * FROM users WHERE id = ?"
-let userId = 3
+let userId = 1
 
 db.all(sql, [userId], (err, rows) => {
 	if (err) return console.log(err.message)
