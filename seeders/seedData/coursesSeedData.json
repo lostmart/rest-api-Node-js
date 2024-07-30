@@ -1,0 +1,242 @@
+[
+	{
+		"id": 1,
+		"title": "Introduction to Law",
+		"description": "An introductory course covering the basics of legal systems, including common law and civil law traditions.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 2,
+		"title": "Constitutional Law",
+		"description": "A comprehensive study of the principles and structure of the Constitution, focusing on the separation of powers and individual rights.",
+		"credits": 4,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 3,
+		"title": "Criminal Law",
+		"description": "An examination of criminal law, including the definitions and classifications of crimes, and the legal processes involved.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 4,
+		"title": "Contract Law",
+		"description": "A study of the formation, interpretation, and enforcement of contracts, including breach and remedies.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 5,
+		"title": "Property Law",
+		"description": "Covers the legal rules and principles governing the ownership and use of property, including real estate and personal property.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 6,
+		"title": "Torts",
+		"description": "An exploration of civil wrongs and the legal mechanisms for addressing harm, including negligence and intentional torts.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 7,
+		"title": "Civil Procedure",
+		"description": "The rules and standards that courts follow in civil litigation, including jurisdiction, pleadings, and trial processes.",
+		"credits": 4,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 8,
+		"title": "Legal Research and Writing",
+		"description": "Skills-based course focusing on legal research techniques and effective legal writing.",
+		"credits": 2,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 9,
+		"title": "Family Law",
+		"description": "Study of legal issues related to family relationships, including marriage, divorce, and child custody.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 10,
+		"title": "Business Associations",
+		"description": "An examination of the law governing business organizations, including partnerships, corporations, and limited liability companies.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 11,
+		"title": "Administrative Law",
+		"description": "Study of the legal principles governing administrative agencies, including rulemaking and adjudication.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 12,
+		"title": "International Law",
+		"description": "An introduction to the legal principles and institutions governing international relations, including treaties and human rights.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 13,
+		"title": "Environmental Law",
+		"description": "Exploration of legal issues related to environmental protection, including regulations and policies.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 14,
+		"title": "Tax Law",
+		"description": "A study of the principles and rules of taxation, including income, corporate, and estate taxes.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 15,
+		"title": "Intellectual Property Law",
+		"description": "Overview of the laws protecting intellectual property, including patents, copyrights, and trademarks.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 16,
+		"title": "Employment Law",
+		"description": "Study of the laws governing employment relationships, including discrimination, labor unions, and workplace safety.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 17,
+		"title": "Evidence",
+		"description": "Examines the rules and standards for presenting evidence in court, including relevance, hearsay, and privileges.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 18,
+		"title": "Legal Ethics",
+		"description": "Covers the ethical responsibilities of lawyers, including client confidentiality, conflicts of interest, and professional conduct.",
+		"credits": 2,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 19,
+		"title": "Human Rights Law",
+		"description": "Study of the international and domestic laws protecting human rights, including key treaties and case law.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 20,
+		"title": "Jurisprudence",
+		"description": "An exploration of philosophical theories about the nature of law and legal reasoning.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 21,
+		"title": "Bankruptcy Law",
+		"description": "An examination of the legal processes involved in resolving financial insolvency, including liquidation and reorganization.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 22,
+		"title": "Cyber Law",
+		"description": "Study of legal issues related to the internet and digital technologies, including privacy, cybercrime, and digital property.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 23,
+		"title": "Health Law",
+		"description": "Exploration of legal issues in healthcare, including patient rights, medical ethics, and healthcare regulations.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 24,
+		"title": "Immigration Law",
+		"description": "Study of the laws and policies governing immigration, citizenship, and asylum.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 25,
+		"title": "Real Estate Law",
+		"description": "Covers legal issues related to real property, including transactions, land use, and leasing.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 26,
+		"title": "Sports Law",
+		"description": "Explores legal issues in sports, including contracts, antitrust, and athlete rights.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 27,
+		"title": "Mediation and Arbitration",
+		"description": "Study of alternative dispute resolution methods, focusing on mediation and arbitration processes.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 28,
+		"title": "Elder Law",
+		"description": "An exploration of legal issues affecting the elderly, including estate planning, healthcare, and guardianship.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 29,
+		"title": "Juvenile Justice",
+		"description": "Study of the juvenile justice system, including laws and procedures related to minors.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	},
+	{
+		"id": 30,
+		"title": "Animal Law",
+		"description": "Examines legal issues concerning animals, including animal rights, welfare, and the regulation of animal industries.",
+		"credits": 3,
+		"created_at": "2024-01-01",
+		"updated_at": "2024-01-01"
+	}
+]
