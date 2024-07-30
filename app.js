@@ -4,6 +4,7 @@ import { dirname } from "path"
 import { fileURLToPath } from "url"
 
 import userRouter from "./routes/user.js"
+import courseRouter from "./routes/course.js"
 
 import cors from "cors"
 const app = express()
@@ -33,8 +34,10 @@ app.get("/", (req, res, next) => {
 	next()
 })
 
-// utiliser le router
+// users router
 app.use("/api/", userRouter)
+// course ruoter
+app.use("/api/", courseRouter)
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
