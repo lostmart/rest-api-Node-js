@@ -11,7 +11,7 @@ const db = new sqlite3.Database(
 	}
 )
 
-export const seedUsers = () => {
+export const seedCourses = () => {
 	db.serialize(() => {
 		db.run(`CREATE TABLE IF NOT EXISTS courses (
 		    id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -54,4 +54,4 @@ export const seedUsers = () => {
 // 	console.log("table deleted ...")
 // })
 
-seedUsers()
+seedCourses()
