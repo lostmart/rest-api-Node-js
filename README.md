@@ -10,6 +10,7 @@ Welcome to the REST API with Node.js project! This project serves as a boilerpla
 - MongoDB Integration: Using Mongoose for database interactions.
 - Environment Variables: Configuration through .env files.
 - Security: Basic security practices implemented.
+- Unit testing with Jest and HTTP testing with Supertest
 
 ## Installation
 
