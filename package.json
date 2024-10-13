@@ -16,7 +16,8 @@
 		"password-validator": "^5.3.0"
 	},
 	"scripts": {
-		"start": "nodemon server.js"
+		"start": "nodemon server.js",
+		"test": "jest"
 	},
 	"name": "rest-api-nodejs",
 	"version": "1.0.1",
@@ -26,6 +27,8 @@
 	"license": "ISC",
 	"description": "",
 	"devDependencies": {
-		"nodemon": "^3.1.0"
+		"jest": "^29.7.0",
+		"nodemon": "^3.1.0",
+		"supertest": "^7.0.0"
 	}
 }
