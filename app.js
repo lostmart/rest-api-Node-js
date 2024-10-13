@@ -1,12 +1,12 @@
 const path = require("path")
 const express = require("express")
-const mongoose = require("mongoose")
 require("dotenv").config()
 
 const userRouter = require("./routes/user.js")
 const sauceRouter = require("./routes/sauce.js")
 
 const cors = require("cors")
+const connectDB = require("./config/db.js")
 const app = express()
 
 // middleware
@@ -26,15 +26,7 @@ app.use((req, res, next) => {
 	next()
 })
 
-//const mongoConnection = process.env.CONEXTION_MONGO
-const mongoConnection = process.env.mongoConnection
-//connexion à la BDD
-mongoose.set("strictQuery", true)
-mongoose
-	.connect(mongoConnection)
-	.then(() => console.log("MongoDB  ok "))
-	.catch(() => console.log("Connexion à MongoDB échouée !"))
-//middleware qui permet d'accéder aux requêtes qui contiennent du json
+connectDB()
 
 // welcome message
 app.get("/", (req, res, next) => {
@@ -44,7 +36,7 @@ app.get("/", (req, res, next) => {
 	next()
 })
 
-// utiliser le router
+// user routes
 app.use("/api/", userRouter)
 
 // sauce le router

@@ -79,7 +79,10 @@ The project structure is as follows:
 
 ```bash
 rest-api-Node-js/
+├── /config
+│   └── db.js           # Database connection configuration
 ├── controllers/        # Controller functions for handling requests
+   └── user.js          # User's logic
 ├── middlewares/        # Custom middleware functions
 ├── models/             # Mongoose models
 ├── routes/             # Express routes
