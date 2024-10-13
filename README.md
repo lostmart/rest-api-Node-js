@@ -87,6 +87,7 @@ rest-api-Node-js/
 ├── models/             # Mongoose models
 ├── routes/             # Express routes
 ├── utils/              # Utility functions
+├── tests/              # Jest and Supertest for testing HTTP requests
 ├── .env                # Environment variables
 ├── .gitignore          # Git ignore file
 ├── package.json        # NPM package configuration
