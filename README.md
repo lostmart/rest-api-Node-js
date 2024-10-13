@@ -95,6 +95,8 @@ rest-api-Node-js/
 └── server.js           # Main server file
 ```
 
+## Jest and Supertests added for unit testing and HTTP testing
+
 ## License
 
 This project is licensed under the MIT License.
