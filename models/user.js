@@ -16,18 +16,3 @@ export const validateUser = (user) => {
 		throw new Error(`Validation error: ${error.details[0].message}`)
 	}
 }
-
-// Usage example
-// const newUser = { name: "Alice", email: "alice@example.com", age: 25 }
-
-// const userSchema = new mongoose.Schema(
-// 	{
-// 		email: { type: String, required: true, unique: true },
-// 		password: { type: String, required: true },
-// 	},
-// 	{ timestamps: true }
-// )
-
-// userSchema.plugin(uniqueValidator)
-
-// module.exports = mongoose.model('userSchema', userSchema)

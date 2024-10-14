@@ -18,7 +18,6 @@ export const signup = async (req, res) => {
 	// new User with class User
 	const newUser = new ClassUser(userName, userImg, email, password, birthYear)
 
-
 	// user Schema validation
 	try {
 		validateUser(newUser)
@@ -132,6 +131,7 @@ export const getAllUsers = async (req, res) => {
 					userName: row.userName,
 					id: row.id,
 					email: row.email,
+					userImg: row.userImg,
 				}
 				users.push(user)
 			})
