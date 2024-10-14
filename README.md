@@ -98,6 +98,35 @@ rest-api-Node-js/
 
 ## Jest and Supertests added for unit testing and HTTP testing
 
+Jest extra config config with babel: Jest doesn't like very much ES modules in JavaScript sop it requires some fiddling with babe configurations as well as jest config as well. To sort this out I added a `jest.config.js` file with the following code:
+
+```javascript
+module.exports = {
+	transform: {
+		"^.+\\.js$": "babel-jest",
+	},
+	moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
+	transformIgnorePatterns: ["/node_modules/(?!(your-esm-dependency)/)"],
+	testEnvironment: "node",
+}
+```
+
+Since I am using ES module syntax, Jest will need Babel to transform the code. I installed `babel-jest` and `@babel/preset-env` as dev dependencies and in the `babel.config.js` file I added
+
+```javascript
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+In the `package.json` file I updated my scripts as follows:
+
+```json
+"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' npx jest"
+```
+
+This allows me to run the command `npm run test` on my terminal in order to launch all the tests
+
 ## License
 
 This project is licensed under the MIT License.
