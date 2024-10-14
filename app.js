@@ -36,6 +36,7 @@ app.get("/", (req, res, next) => {
 	next()
 })
 
+
 // user routes
 app.use("/api/", userRouter)
 

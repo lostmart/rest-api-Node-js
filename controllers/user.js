@@ -5,9 +5,12 @@ require("dotenv").config()
 
 exports.signup = (req, res, next) => {
 	const { email, password } = req.body
-	console.log(email)
+	// check empty
+	if (!email || !password) {
+		return res.sendStatus(400)
+	}
 
-	res.sendStatus(200)
+	res.json({ msg: "all good !!" })
 
 	// bcrypt
 	// 	.hash(req.body.password, 10)
