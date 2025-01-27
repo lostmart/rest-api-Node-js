@@ -21,7 +21,7 @@
 	},
 	"name": "rest-api-nodejs",
 	"version": "1.0.1",
-	"main": "app.js",
+	"main": "server.js",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
